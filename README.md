@@ -1,13 +1,20 @@
-# PHP-Starter
+# Encrypted JSON Type
 
-Basic requirements for a PHP project
+A custom type for storing json arrays as encrypted strings using mysql.
+
+Depends on michaeldegroot/doctrine-encrypt-bundle for encryptors, interface.
 
 ### Authors
 Chris Young <chris.young@brighte.com.au>
 
-### Team
-- Services Team
-- Architecture Team
+## Installation
+
+composer require michaeldegroot/doctrine-encrypt-bundle
+
+```
+\Doctrine\DBAL\Types\Type::addType('json_encrypted', EncryptedJsonType::class);
+\Doctrine\DBAL\Types\Type::getType('json_encrypted', EncryptedJsonType::class)->setEncryptor(new HalineEncryptor());
+```
 
 ## Contributing
 - Never commit directly to master. Always make pull requests to the Authors
